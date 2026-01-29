@@ -1,0 +1,58 @@
+[project]
+name = "map2poster"
+version = "0.2.4"
+description = "Generate beautiful, minimalist map posters for any city in the world."
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [
+    {name = "Anton Vice", email = "a1996nton@gmail.com"}
+]
+keywords = ["map", "poster", "osm", "openstreetmap", "art", "visualization"]
+
+dependencies = [
+    "certifi",
+    "charset-normalizer",
+    "contourpy",
+    "cycler",
+    "fonttools",
+    "geographiclib",
+    "geopandas",
+    "geopy",
+    "idna",
+    "kiwisolver",
+    "lat-lon-parser",
+    "matplotlib",
+    "networkx",
+    "numpy",
+    "osmnx",
+    "packaging",
+    "pandas",
+    "pillow",
+    "pyogrio",
+    "pyparsing",
+    "pyproj",
+    "python-dateutil",
+    "pytz",
+    "requests",
+    "scipy",
+    "shapely",
+    "six",
+    "streamlit>=1.53.1",
+    "tqdm",
+    "tzdata",
+    "urllib3",
+]
+
+[project.scripts]
+map2poster = "map2poster.cli:main"
+
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["map2poster"]
+package-dir = {"map2poster" = "."}
+
+[tool.setuptools.package-data]
+map2poster = ["themes/*.json", "fonts/*.ttf"]
