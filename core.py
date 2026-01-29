@@ -23,7 +23,10 @@ import osmnx as ox
 from geopandas import GeoDataFrame
 from geopy.geocoders import Nominatim
 from lat_lon_parser import parse
-from .font_management import load_fonts
+try:
+    from .font_management import load_fonts
+except (ImportError, ValueError):
+    from font_management import load_fonts
 from matplotlib.font_manager import FontProperties
 from networkx import MultiDiGraph
 from shapely.geometry import Point

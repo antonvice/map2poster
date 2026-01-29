@@ -2,16 +2,28 @@
 import argparse
 import sys
 import os
-from .core import (
-    create_poster,
-    load_theme,
-    get_coordinates,
-    get_available_themes,
-    list_themes,
-    print_examples,
-    generate_output_filename,
-)
-from .font_management import load_fonts
+try:
+    from .core import (
+        create_poster,
+        load_theme,
+        get_coordinates,
+        get_available_themes,
+        list_themes,
+        print_examples,
+        generate_output_filename,
+    )
+    from .font_management import load_fonts
+except (ImportError, ValueError):
+    from core import (
+        create_poster,
+        load_theme,
+        get_coordinates,
+        get_available_themes,
+        list_themes,
+        print_examples,
+        generate_output_filename,
+    )
+    from font_management import load_fonts
 from lat_lon_parser import parse
 
 def main():
