@@ -2,6 +2,8 @@
 
 **Create beautiful, minimalist map posters for any city in the world.**
 
+[![Streamlit Demo](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://antonvice-map2poster-main-9gtd0k.streamlit.app/)
+
 `map2poster` is a high-performance Python tool that transforms OpenStreetMap data into stunning, gallery-ready minimalist art. Whether you're capturing the grid of New York, the canals of Venice, or the organic sprawl of Tokyo, `map2poster` delivers premium-quality visualizations with customizable themes and professional typography.
 
 ## ✨ Features
