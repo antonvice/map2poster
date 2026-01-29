@@ -5,7 +5,12 @@ import matplotlib
 matplotlib.use('Agg')
 from pathlib import Path
 from PIL import Image
-from map2poster import CreatePoster, load_theme, get_coordinates, get_available_themes, load_fonts
+try:
+    from map2poster import CreatePoster, load_theme, get_coordinates, get_available_themes, load_fonts
+except ImportError:
+    from core import create_poster as CreatePoster
+    from core import get_available_themes, load_theme, get_coordinates
+    from font_management import load_fonts
 
 # Page Config
 st.set_page_config(
@@ -88,7 +93,10 @@ def main():
         st.divider()
         if st.button("🗑️ Clear Cache"):
             import shutil
-            from map2poster.core import CACHE_DIR
+            try:
+                from map2poster.core import CACHE_DIR
+            except ImportError:
+                from core import CACHE_DIR
             if CACHE_DIR.exists():
                 shutil.rmtree(CACHE_DIR)
                 CACHE_DIR.mkdir(exist_ok=True)
@@ -153,7 +161,7 @@ def main():
             # 5. Display result
             if output_format.lower() == "png":
                 image = Image.open(file_path)
-                st.image(image, use_container_width=True)
+                st.image(image, width='stretch')
             else:
                 st.info(f"Preview not available for {output_format.upper()}. Please download the file below.")
             
